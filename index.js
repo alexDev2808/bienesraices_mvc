@@ -1,4 +1,4 @@
-const express = require('express')
+import express from 'express'
 
 // Crear la app
 const app = express()
@@ -9,7 +9,9 @@ app.get('/', function(req, res) {
     res.send('Hola mundo en express')
 })
 
-// 
+
+
+// Definir el puerto y arrancar server
 const port = 3000
 
 app.listen(port, () => {

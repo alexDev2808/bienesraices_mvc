@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Proyecto Bienes Raices con Node.js",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node ./index.js",
     "server": "nodemon index.js"
