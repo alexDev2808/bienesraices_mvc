@@ -6,9 +6,14 @@ import db from './config/db.js'
 // Crear la app
 const app = express()
 
+// Habilitar lectura de forms
+app.use(express.urlencoded({extended: true}))
+
+
 // Conexion a DB
 try {
     await db.authenticate();
+    db.sync();
     console.log("Conn correcta");
 } catch(error) {
     console.log(error);

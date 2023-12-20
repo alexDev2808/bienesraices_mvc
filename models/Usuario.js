@@ -15,9 +15,7 @@ const Usuario = db.define('usuarios', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    token: {
-        type: DataTypes.STRING
-    },
+    token: DataTypes.STRING,
     confirmado: DataTypes.BOOLEAN
 })
 
