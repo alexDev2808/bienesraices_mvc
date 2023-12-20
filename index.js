@@ -9,6 +9,10 @@ app.set('view engine', 'pug')
 app.set('views', './views')
 
 
+// Carpeta publica
+app.use(express.static('public'))
+
+
 // Routing, use escanea los que inician con /
 app.use('/auth', usuarioRoutes)
 
