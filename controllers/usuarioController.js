@@ -12,9 +12,16 @@ const formularioRegistro = (req, res) => {
 }
 
 
+const formularioOlvidePassword = (req, res) => {
+    // vista, objeto con info para la vista
+    res.render('auth/olvide-password', {
+        pagina: 'Recupera acceso a Bienes Raices'
+    })
+}
 
 
 export {
     formularioLogin,
-    formularioRegistro
+    formularioRegistro,
+    formularioOlvidePassword
 }
