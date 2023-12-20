@@ -5,8 +5,9 @@ const formularioLogin = (req, res) => {
 }
 
 const formularioRegistro = (req, res) => {
+    // vista, objeto con info para la vista
     res.render('auth/registro', {
-        
+        pagina: 'Crear Cuenta'
     })
 }
 
