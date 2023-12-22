@@ -6,8 +6,28 @@ import { emailRegistro, emailOlvidePassword } from '../helpers/emails.js'
 
 const formularioLogin = (req, res) => {
     res.render('auth/login', {
-        pagina: 'Iniciar Sesion'
+        pagina: 'Iniciar Sesion',
+        csrfToken: req.csrfToken()
     })
+}
+
+const autenticar = async (req, res) => {
+    // Validacion
+    await check('email').isEmail().withMessage('El email es obligatorio').run(req)
+    await check('password').notEmpty().withMessage('El password es obligatorio').run(req)
+   
+    let resultado = validationResult(req)
+
+    // Verificar que el resultado no este vacio
+    if(!resultado.isEmpty()) {
+        return res.render('auth/login', {
+            pagina: 'Iniciar Sesion',
+            csrfToken: req.csrfToken(),
+            errores: resultado.array(),
+        })
+    }
+
+    
 }
 
 const formularioRegistro = (req, res) => {
@@ -236,6 +256,7 @@ const nuevoPassword = async (req, res) => {
 
 export {
     formularioLogin,
+    autenticar,
     formularioRegistro,
     formularioOlvidePassword,
     registrar,
