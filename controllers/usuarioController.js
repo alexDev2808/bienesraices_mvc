@@ -139,7 +139,23 @@ const resetPassword = async (req, res) => {
     }
 
     // Buscar usuario
+    const { email } = req.body
+
+    const usuario = await Usuario.findOne({where: {email}})
+
+    if(!usuario){
+        return res.render('auth/olvide-password', {
+            pagina: 'Recuperar cuenta',
+            csrfToken: req.csrfToken(),
+            errores: [{
+                msg: "Email no registrado"
+            }]
+        })
+    }
+
+    // Generar un token y enviar email
     
+
 }
 
 
