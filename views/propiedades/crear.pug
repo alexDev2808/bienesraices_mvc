@@ -1,5 +1,8 @@
 extends ../layout/index
 
+block styles
+    link(rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css")
+
 block contenido
     div.py-10
         h1(class="text-4xl my-10 font-extrabold text-center") Bienes
@@ -55,6 +58,9 @@ block contenido
                                 - let nWC = 1;
                                     while nWC < 6
                                         option(value=nWC) #{nWC++}
+
+
+                    div(id="mapa" class="h-96")               
 
 
 block scripts
